@@ -138,7 +138,7 @@
         }else{
           echo
           "<li class='nav-item'>
-          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['Priimek']."</a>
+          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['Ime']."</a>
           </li>";
         }
 

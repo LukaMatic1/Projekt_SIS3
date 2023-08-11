@@ -46,10 +46,11 @@
                         <td>$productPer %</td>
                         <td>$productCat</td>
                         <td>$productDesc</td>
-                        <td><img class='card-img-top' src='data:image/jpeg;base64,".$productPic."' alt='Card image cap'></td>
+                        <td><img class='card-img-top' src='data:image/jpeg;base64,".$productPic."' 
+                        alt='Card image cap'></td>
 
-                        <td><a href='index.php?editProducts' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
-                        <td><a href='' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+                        <td><a href='index.php?editProducts=$productId' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
+                        <td><a href='index.php?deleteProducts=$productId' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
                     </tr>";
                     
                 }

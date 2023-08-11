@@ -122,7 +122,8 @@
             <!-- slike1 -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="productImage1" class="form-label">Izbira slike izdelka</label>
-                <input accept="image/jpg, image/png, image/gif, image/jpeg" type="file" name="productImage1" id="productImage1" class="form-control"> <!--(required="required")-->
+                <input accept="image/jpg, image/png, image/gif, image/jpeg" type="file" name="productImage1" 
+                id="productImage1" class="form-control"> <!--(required="required")-->
 
             </div>
             <!-- slike2 --><!--
