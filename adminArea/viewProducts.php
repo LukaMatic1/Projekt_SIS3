@@ -30,6 +30,7 @@
             <?php
                 $getProducts="SELECT * FROM `Izdelek`";
                 $result=mysqli_query($con,$getProducts);
+                $number=0;
                 while($row=mysqli_fetch_assoc($result)){
                     $productId=$row['Id_izdelek'];
                     $productTitle=$row['Ime'];
@@ -38,9 +39,10 @@
                     $productCat=$row['Kategorije'];
                     $productDesc=$row['Opis'];
                     $productPic=$row['Slika'];
+                    $number++;
                     echo "
                     <tr class='text-center'>
-                        <td>$productId</td>
+                        <td>$number</td>
                         <td>$productTitle</td>
                         <td>$productPrice €</td>
                         <td>$productPer %</td>

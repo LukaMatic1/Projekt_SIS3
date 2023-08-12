@@ -58,6 +58,13 @@
                         <input type="email" id="userEmail" class="form-control" 
                         placeholder="Vnesite Email" autocomplete="off" required="required" name="userEmail">  
                     </div>
+                    <!--Uporabnisko ime-->
+                    <div class="form-outline mb-4">
+                        <label for="loginUsername" class="form-label">Uporabniško ime</label>
+                        <input type="text" id="loginUsername" class="form-control" 
+                        placeholder="Vnesite Ime" autocomplete="off" required="required" name="loginUsername">
+                    </div>
+                    
                     <!--Geslo-->
                     <div class="form-outline mb-4">
                         <label for="userPassword" class="form-label">Geslo</label>
@@ -101,6 +108,7 @@
     if(isset($_POST['userRegister'])){
         $userUsername=$_POST['userName'];
         $userSurname=$_POST['userSurname'];
+        $loginUsername=$_POST['loginUsername'];
         $userEmail=$_POST['userEmail'];
         $userPassword=$_POST['userPassword'];
         $hashPassword=password_hash($userPassword,PASSWORD_DEFAULT);
@@ -112,8 +120,7 @@
         
 
         //preverjanje
-        $selectQuery="SELECT * FROM `Uporabnik` WHERE Ime='$userUsername' AND Priimek='$userSurname' 
-        OR E_posta='$userEmail'";
+        $selectQuery="SELECT * FROM `Uporabnik` WHERE uporabnisko_ime='$loginUsername' OR E_posta='$userEmail'";
         $result=mysqli_query($con,$selectQuery);
         $rowsCount=mysqli_num_rows($result);
         if($rowsCount>0){
@@ -121,8 +128,8 @@
         }else if($userPassword!=$confUserPassword){
             echo "<script>alert('Gesla se ne ujemata')</script>";    
         }else{
-        $insertQuery="INSERT INTO `Uporabnik` (Ime,Priimek,E_posta,Geslo,Naslov,postna_stevilka,user_ip) VALUES 
-        ('$userUsername','$userSurname','$userEmail','$hashPassword',' $userAddress',$userPostNum,'$userIp')";
+        $insertQuery="INSERT INTO `Uporabnik` (Ime,Priimek,E_posta,Geslo,Naslov,postna_stevilka,user_ip,uporabnisko_ime) VALUES 
+        ('$userUsername','$userSurname','$userEmail','$hashPassword',' $userAddress',$userPostNum,'$userIp','$loginUsername')";
         $sqlExecute=mysqli_query($con,$insertQuery);
             if($sqlExecute){
                 echo "<script>alert('Profil uspešno vnesen')</script>"; 
@@ -135,9 +142,9 @@
         $resultCart=mysqli_query($con,$selectCartItems);
         $rowsCount=mysqli_num_rows($resultCart);
         if($rowsCount>0){
-            $_SESSION['Ime']=$userUsername;
+            $_SESSION['uporabnisko_ime']=$loginUsername;
             echo "<script>alert('Imate izdelkev vozičku')</script>";
-            echo "<script>window.open('Checkout.php','_self')</script>";     
+            echo "<script>window.open('checkout.php','_self')</script>";     
         }else{
             echo "<script>window.open('../Index.php','_self')</script>";
         }        

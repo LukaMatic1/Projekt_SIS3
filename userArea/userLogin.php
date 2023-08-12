@@ -29,17 +29,11 @@
         <div class="row d-flex align-items-center justify-content-center mt-5">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <!--Ime-->
+                    <!--Uporabnisko Ime-->
                     <div class="form-outline mb-4">
-                        <label for="userName" class="form-label">Ime</label>
-                        <input type="text" id="userName" class="form-control" 
-                        placeholder="Vnesite Ime" autocomplete="off" required="required" name="userName">
-                    </div>
-                    <!--Geslo-->
-                    <div class="form-outline mb-4">
-                        <label for="userSurname" class="form-label">Priimek</label>
-                        <input type="text" id="userSurname" class="form-control" 
-                        placeholder="Vnesite Geslo" autocomplete="off" required="required" name="userSurname">  
+                        <label for="loginUsername" class="form-label">Uporabniško ime</label>
+                        <input type="text" id="loginUsername" class="form-control" 
+                        placeholder="Vnesite Ime" autocomplete="off" required="required" name="loginUsername">
                     </div>
                     <!--Geslo-->
                     <div class="form-outline mb-4">
@@ -60,14 +54,13 @@
     </div>
 </body>
 </html>
-<!--treba dodat se za priimek-->
+
 <?php 
     if(isset($_POST['userLogin'])){
-        $userUsername=$_POST['userName'];
-        $userSurname=$_POST['userSurname'];
+        $loginUsername=$_POST['loginUsername'];
         $userPassword=$_POST['userPassword'];    
         
-        $selectQuery="SELECT * FROM `Uporabnik` WHERE Ime='$userUsername' AND Priimek='$userSurname'";
+        $selectQuery="SELECT * FROM `Uporabnik` WHERE uporabnisko_ime='$loginUsername'";
         $result=mysqli_query($con,$selectQuery);
         $rowCount=mysqli_num_rows($result);
         $rowData=mysqli_fetch_assoc($result);//password from DB
@@ -78,19 +71,17 @@
         $selectCart=mysqli_query($con,$selectQueryCart);
         $rowCountCart=mysqli_num_rows($selectCart);
         if($rowCount>0){
-            $_SESSION['Ime']=$userUsername;
+            $_SESSION['uporabnisko_ime']=$loginUsername;
             if(password_verify($userPassword,$rowData['Geslo'])){//hash password verifying
                 if($rowCount==1 and $rowCountCart==0){
                     
-                    $_SESSION['Ime']=$userUsername;
-                    $_SESSTION['Priimek']=$userSurname;
+                    $_SESSION['uporabnisko_ime']=$loginUsername;
+                    echo "<script>alert('Prijava uspešna')</script>";
+                    echo "<script>window.open('checkout.php','_self')</script>";
+                }else{
+                    $_SESSION['uporabnisko_ime']=$loginUsername;
                     echo "<script>alert('Prijava uspešna')</script>";
                     echo "<script>window.open('profile.php','_self')</script>";
-                }else{
-                    $_SESSION['Ime']=$userUsername;
-                    $_SESSTION['Priimek']=$userSurname;
-                    echo "<script>alert('Prijava uspešna')</script>";
-                    echo "<script>window.open('payment.php','_self')</script>";
                 }
             }else{
                 echo "<script>alert('Geslo žal ni pravilno')</script>";

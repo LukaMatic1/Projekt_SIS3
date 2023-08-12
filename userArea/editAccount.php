@@ -1,7 +1,7 @@
 <?php
     if(isset($_GET['editAccount'])){
-        $userSessionName=$_SESSION['Ime']; 
-        $selectQuery="SELECT * FROM `Uporabnik` WHERE Ime='$userSessionName'"; 
+        $userSessionName=$_SESSION['uporabnisko_ime']; 
+        $selectQuery="SELECT * FROM `Uporabnik` WHERE uporabnisko_ime='$userSessionName'"; 
         $resultQuery=mysqli_query($con,$selectQuery);  
         $rowFetch=mysqli_fetch_assoc($resultQuery);
         $userId=$rowFetch['Id_uporabnik'];
@@ -10,6 +10,7 @@
         $email=$rowFetch['E_posta'];
         $userAddress=$rowFetch['Naslov'];
         $userPostNum=$rowFetch['postna_stevilka'];
+        //$loginUsername=$rowFetch['uporabnisko_ime'];
     }
 
     //po kliku
@@ -19,11 +20,12 @@
         $userSurname=$_POST['Priimek'];
         $email=$_POST['E_posta'];
         $userAddress=$_POST['Naslov'];
-        $userPostNum=$_POST['postna_stevilka']; 
+        $userPostNum=$_POST['postna_stevilka'];
+        //$loginUsername=$_POST['uporabnisko_ime']; 
         
         //update query
         $updateData="UPDATE `Uporabnik` SET Ime='$userName', Priimek='$userSurname', E_posta='$email', 
-        Naslov='$userAddress', postna_stevilka=$userPostNum WHERE Id_uporabnik=$updateId";
+        Naslov='$userAddress', postna_stevilka=$userPostNum WHERE Id_uporabnik=$updateId"; //uporabnisko_ime='$loginUsername'
         $resultQueryUpdate=mysqli_query($con,$updateData);
         if($resultQueryUpdate){
             echo "<script>alert('Podatki uspešno posodobljeni')</script>"; 
@@ -36,11 +38,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Account</title>
+    <title>Uredi profil</title>
 </head>
 <body>
-    <h3 class="text-center text-success mb-4">Edit Account</h3>
+    <h3 class="text-center text-success mb-4">Urejanje profila za pošiljke</h3>
     <form action="" method="post" class="text-center" enctype="multipart/form-data">
+        <!--<div class="form-outline mb-4">
+            <input type="text" class="form-control w-50 m-auto" value="<?php echo $loginUsername ?>" name="uporabnisko_ime">    
+        </div>-->
         <div class="form-outline mb-4">
             <input type="text" class="form-control w-50 m-auto" value="<?php echo $userName ?>" name="Ime">    
         </div>

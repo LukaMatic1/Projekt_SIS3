@@ -7,12 +7,12 @@
 </head>
 <body>
     <?php
-        $username=$_SESSION['Ime'];
-        $getUser="SELECT * FROM `Uporabnik` WHERE Ime='$username'";
+        $loginUsername=$_SESSION['uporabnisko_ime'];
+        $getUser="SELECT * FROM `Uporabnik` WHERE uporabnisko_ime='$loginUsername'";
         $result=mysqli_query($con,$getUser);
         $rowFetch=mysqli_fetch_assoc($result);
-        /*$userId=$rowFetch['Id_Uporabnik'];
-        echo $userId;*/
+        $userId=$rowFetch['Id_uporabnik'];
+        // echo $loginUsername;
 
     ?>
     <h3 class="text-success text-center">Vsa moja naročila</h3>

@@ -1,3 +1,5 @@
+<!-- menjaj sliko kolesa -->
+
 <?php
   include('../includes/connect.php');
 ?>
@@ -56,7 +58,7 @@
         <h2 class="text-center text-info">Način plačila</h2>
         <div class="row d-flex justify-content-center align-items-center my-5">
             <div class="col-md-6">
-                <a href="http://www.bajk.si"><img src="../image/kolo.jpeg" alt="" class="paymentImg"></a>
+                <a href="http://www.paypal.com"><img src="../image/kolo.jpeg" alt="" class="paymentImg"></a>
             </div>
             <div class="col-md-6">
                 <a href="order.php?userId=<?php echo $userId ?>"><h2 class="text-center">Plačaj offline</h2></a>

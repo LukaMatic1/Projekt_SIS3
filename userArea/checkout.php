@@ -1,7 +1,7 @@
 <?php
   include('../includes/connect.php');
 
-  @session_start();
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
       <ul class="navbar-nav me-auto">
         <?php
         //session izpis imena ob prijavi
-        if(!isset($_SESSION['Ime'])){
+        if(!isset($_SESSION['uporabnisko_ime'])){
           echo
           "<li class='nav-item'>
           <a class='nav-link' href='#' txt-center>Dobrodošli gost</a>
@@ -69,12 +69,12 @@
         }else{
           echo
           "<li class='nav-item'>
-          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['Ime']."</a>
+          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['uporabnisko_ime']."</a>
           </li>";
         }
         
         //session login/logout button
-          if(!isset($_SESSION['Ime'])){
+          if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
             <a class='nav-link' href='./userLogin.php'>Login</a>
@@ -99,7 +99,7 @@
       <div class="col-md-12">
         <div class="row">
             <?php
-            if(!isset($_SESSION['Ime'])){
+            if(!isset($_SESSION['uporabnisko_ime'])){
                 include('./userLogin.php');   
             }else{
                 include('payment.php');

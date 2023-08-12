@@ -52,14 +52,24 @@
         <li class="nav-item">
           <a class="nav-link" href="displayAll.php">Produkti</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
+        <?php
+        if(!isset($_SESSION['uporabnisko_ime'])){
+            echo
+            "<li class='nav-item'>
+            <a class='nav-link' href='./userArea/userRegistration.php'>Register</a>
+          </li>"; 
+          }else{
+            echo
+            "<li class='nav-item'>
+            <a class='nav-link' href='./userArea/profile.php'>Profil</a>
+          </li>";
+          }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="#">Kontakt</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup>
+          <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup>
           <?php
               //izdelki v vozicku
               if(isset($_GET['addToCart'])){
@@ -116,7 +126,7 @@
       <ul class="navbar-nav me-auto">
         <?php
         //session izpis imena ob prijavi
-        if(!isset($_SESSION['Ime'])){
+        if(!isset($_SESSION['uporabnisko_ime'])){
           echo
           "<li class='nav-item'>
           <a class='nav-link' href='#' txt-center>Dobrodošli gost</a>
@@ -124,12 +134,12 @@
         }else{
           echo
           "<li class='nav-item'>
-          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['Ime']."</a>
+          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['uporabnisko_ime']."</a>
           </li>";
         }  
        
         //session login/logout button
-          if(!isset($_SESSION['Ime'])){
+          if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
             <a class='nav-link' href='./userArea/userLogin.php'>Login</a>

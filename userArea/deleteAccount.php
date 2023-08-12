@@ -17,11 +17,10 @@
     </form>
 
     <?php
-        $usernameSession=$_SESSION['Ime'];
-        $surnameSession=$_SESSION['Priimek'];
+        $usernameSession=$_SESSION['uporabnisko_ime'];
         
         if(isset($_POST['delete'])){
-            $deleteQuery="DELETE FROM `Uporabnik` WHERE Ime='$usernameSession' Priimek='$surnameSession'";
+            $deleteQuery="DELETE FROM `Uporabnik` WHERE uporabnisko_ime='$usernameSession'";
             $result=mysqli_query($con,$deleteQuery);
             if($result){
                 session_destroy();

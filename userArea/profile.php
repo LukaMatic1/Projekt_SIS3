@@ -29,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href=''>
-    <title>Dobrodošli <?php echo $_SESSION['Ime']/*$_SESSION['Priimek']*/  ?></title>  
+    <title>Dobrodošli <?php echo $_SESSION['uporabnisko_ime']/*$_SESSION['Priimek']*/  ?></title>  
     <!-- Bootstrap CSS link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
@@ -71,7 +71,7 @@
           <a class="nav-link" href="../displayAll.php">Produkti</a>
         </li>
         <?php
-        if(!isset($_SESSION['Ime'])){
+        if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
             <a class='nav-link' href='./userRegistration.php'>Register</a>
@@ -142,7 +142,7 @@
       <ul class="navbar-nav me-auto">  
         <?php
         //session izpis imena ob prijavi
-        if(!isset($_SESSION['Ime'])){
+        if(!isset($_SESSION['uporabnisko_ime'])){
           echo
           "<li class='nav-item'>
           <a class='nav-link' href='#' txt-center>Dobrodošli gost</a>
@@ -150,12 +150,12 @@
         }else{
           echo
           "<li class='nav-item'>
-          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['Ime']."</a>
+          <a class='nav-link' href='#'>Dobrodošli  ".$_SESSION['uporabnisko_ime']."</a>
           </li>";
         }
 
         //session login/logout button
-          if(!isset($_SESSION['Ime'])){
+          if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
             <a class='nav-link' href='./userArea/userLogin.php'>Login</a>
@@ -172,7 +172,7 @@
 
     <div class="bg-light">
       <h3 class="text-center">Trgovina z znižanimi izdelki</h3>  
-      <p class="text-center">Za vse ki hočejo prišparat pri svojem naslednjem nakupu</p>
+      <p class="text-center">Za vse ki hočejo prihranit pri svojem naslednjem nakupu</p>
     </div>  
     
     <div class="row">
@@ -201,8 +201,8 @@
         <div class="col-md-10">
           <?php
             //get user order details
-            $username1=$_SESSION['Ime'];
-            $getDetails="SELECT * FROM `Uporabnik` WHERE Ime='$username1'";
+            $loginUsername=$_SESSION['uporabnisko_ime'];
+            $getDetails="SELECT * FROM `Uporabnik` WHERE uporabnisko_ime='$loginUsername'";
             $resultQuery=mysqli_query($con,$getDetails);
             while($rowQuery=mysqli_fetch_array($resultQuery)){
               $userId=$rowQuery['Id_uporabnik'];
