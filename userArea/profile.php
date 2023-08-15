@@ -179,10 +179,10 @@
         <div class="col-md-2 p-0">
           <ul class="navbar-nav bg-secondary text-center"><!--style="height:100vh"-->
             <li class="nav-item bg-info">
-                <a class="nav-link text-light" aria-current ="page" href="profile.php"><h4>Profil</h4></a>
+                <a class="nav-link text-light" href="#"><h4>Profil</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" aria-current ="page" href="profile.php?aa">Naročila v teku</a>
+                <a class="nav-link text-light" aria-current ="page" href="profile.php">Naročila v teku</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" aria-current ="page" href="profile.php?editAccount">Uredi profil</a>
@@ -209,7 +209,7 @@
               if(!isset($_GET['editAccount'])){
                 if(!isset($_GET['myOrders'])){
                   if(!isset($_GET['deleteAccount'])){
-                  $getOrders="SELECT * FROM `Vozicek` WHERE Up_Id=$userId";
+                  $getOrders="SELECT * FROM `Narocila` WHERE Up_Id=$userId AND Status_narocila='V teku'";
                   $resultOrderQuery=mysqli_query($con,$getOrders);
                   $rowCount=mysqli_num_rows($resultOrderQuery);
                   if($rowCount>0){

@@ -33,7 +33,7 @@
     aria-describedby="basic-addon1">
     </div>
 
-    <div class="input-group w-10 mb-2 m-auto">
+    <!-- <div class="input-group w-10 mb-2 m-auto"> -->
     
     <input type="submit" class="bg-info border-0 p-2 my-3" name="insertCat" value="Vnesi kategorijo">
     

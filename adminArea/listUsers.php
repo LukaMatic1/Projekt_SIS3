@@ -28,25 +28,25 @@
             <tbody class='bg-secondary text-light'>";
             $number=0;
             while($rowData=mysqli_fetch_assoc($result)){
-                $orderId=$rowData['Id_uporabnik'];
-                $orderUsername=$rowData['uporabnisko_ime'];
-                $orderName=$rowData['Ime'];
-                $orderSurname=$rowData['Priimek'];
-                $orderEmail=$rowData['E_posta'];
-                $orderAddress=$rowData['Naslov'];
+                $userId=$rowData['Id_uporabnik'];
+                $userUsername=$rowData['uporabnisko_ime'];
+                $userName=$rowData['Ime'];
+                $userSurname=$rowData['Priimek'];
+                $userEmail=$rowData['E_posta'];
+                $userAddress=$rowData['Naslov'];
                 $postNum=$rowData['postna_stevilka'];
                 $number++;
                 
                 echo "
                 <tr>
                     <td>$number</td>
-                    <td>$orderUsername</td>
-                    <td>$orderName</td>
-                    <td>$orderSurname</td>
-                    <td>$orderEmail</td>
-                    <td>$orderAddress</td>
+                    <td>$userUsername</td>
+                    <td>$userName</td>
+                    <td>$userSurname</td>
+                    <td>$userEmail</td>
+                    <td>$userAddress</td>
                     <td>$postNum</td>
-                    <td><a href='' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+                    <td><a href='index.php?deleteUser=$userId' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
                 </tr>";
             } 
         }   

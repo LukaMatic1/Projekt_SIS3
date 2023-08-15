@@ -19,32 +19,56 @@
     <table class=" table table-bordered mt-5 mx-4">
         <thead class="bg-info">
             <tr>
-                <th>Id Vozička</th>
+                <th>Število naročil</th>
                 <th>Količina</th>
                 <th>Skupna Cena</th>
-                <th>Id izdelka</th>
-                <th>Zaključeno naročilo</th>
+                <th>Številka računa</th>
+                <th>Datum</th>
                 <th>Status</th>
+                <th>Zaključeno naročilo</th>
+                <th>Plačilo</th>
             </tr>
         </thead>
         <tbody class="bg-secondary text-light">
             <?php
-                $getOrderDetails="SELECT * FROM `Vozicek` WHERE Up_Id='$userId'";
+                $getOrderDetails="SELECT * FROM `Narocila` WHERE Up_Id='$userId'";
                 $resultOrders=mysqli_query($con,$getOrderDetails);
+                $numbers=0;
                 while($rowOrders=mysqli_fetch_assoc($resultOrders)){
-                    $order=$rowOrders['Id_vozicka'];
-                    $amount=$rowOrders['Kolicina'];
-                    $total=$rowOrders['Skupna_cena'];
-                    $prodId=$rowOrders['Izd_Id'];
+                    $order=$rowOrders['Id_narocila'];
+                    $amount=$rowOrders['St_produktov'];
+                    $total=$rowOrders['Znesek'];
+                    $prodId=$rowOrders['St_racuna'];
+                    $prodDate=$rowOrders['Datum_narocila'];
+                    $prodStatus=$rowOrders['Status_narocila'];
+                    $numbers++;
+                    if($prodStatus=='V teku'){
+                        $prodStatus='Neplačano'; 
+                        $yesOrNo='Ne';   
+                    }else{
+                        $prodStatus='Plačano';
+                        $yesOrNo='Ja'; 
+                    }
+
+
                     echo
-                    "<tr>
-                        <td>$order</td>
-                        <td>$amount</td>
-                        <td>$total €</td>
-                        <td>$prodId</td>
-                        <td>Ne</td>
-                        <td>V fazi plačila</td>   
-                    </tr>"; 
+                        "<tr>
+                            <td>$numbers</td>
+                            <td>$total €</td>
+                            <td>$amount</td>
+                            <td>$prodId</td>
+                            <td>$prodDate</td>
+                            <td>$prodStatus</td>
+                            <td>$yesOrNo</td>";
+            ?>                
+            <?php
+                    if($prodStatus=='Plačano'){
+                        echo "<td>Zaključeno</td>";
+                    }else{    
+                        echo "<td><a href='potrdiPlacilo.php?orderId=$order' class='text-light'>Potrdi</a></td>
+                        </tr>";  
+                }           
+                        
                 }    
             ?>
               

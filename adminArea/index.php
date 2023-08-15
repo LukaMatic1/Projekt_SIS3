@@ -62,8 +62,8 @@
                     <button class="m-1"><a href="index.php?viewCategories" class="nav-link text-light bg-info m-1">Preglej Kategorije</a></button>
                     <button class="m-1"><a href="index.php?insertBrand" class="nav-link text-light bg-info m-1">Vstavi Znamko</a></button>
                     <button class="m-1"><a href="index.php?viewBrands" class="nav-link text-light bg-info m-1">Preglej Znamke</a></button>
-                    <button class="m-1"><a href="#" class="nav-link text-light bg-info m-1">Vsa Naročila</a></button>
-                    <button class="m-1"><a href="#" class="nav-link text-light bg-info m-1">Vsa Plačila</a></button>
+                    <button class="m-1"><a href="index.php?listOrders" class="nav-link text-light bg-info m-1">Vsa Naročila</a></button>
+                    <button class="m-1"><a href="index.php?listPayments" class="nav-link text-light bg-info m-1">Vsa Plačila</a></button>
                     <button class="m-1"><a href="index.php?listUsers" class="nav-link text-light bg-info m-1">List uporabnikov</a></button>
                     <button class="m-1"><a href="#" class="nav-link text-light bg-info m-1">Logout</a></button>
                 </div>
@@ -107,6 +107,21 @@
             }
             if(isset($_GET['listUsers'])){
                 include('listUsers.php');    
+            }
+            if(isset($_GET['listOrders'])){
+                include('listOrders.php');    
+            }
+            if(isset($_GET['listPayments'])){
+                include('listPayments.php');    
+            }
+            if(isset($_GET['deleteOrder'])){
+                include('deleteOrder.php');    
+            }
+            if(isset($_GET['deletePayment'])){
+                include('deletePayment.php');    
+            }
+            if(isset($_GET['deleteUser'])){
+                include('deleteUser.php');    
             }
             ?>
         </div>

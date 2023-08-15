@@ -52,9 +52,9 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./index.php?viewBrands"
-             class="text-light text-decoration-none">No</a></button>
+             class="text-light text-decoration-none">Ne</a></button>
             <button type="button" class="btn btn-primary"><a href='index.php?deleteBrand=<?php echo $brandId;?>'  
-            class="text-light text-decoration-none">Yes</a></button>
+            class="text-light text-decoration-none">Ja</a></button>
         </div>
         </div>
     </div>
