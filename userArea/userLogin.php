@@ -2,7 +2,7 @@
   include('../includes/connect.php');
   
 
-  session_start(); //@ samo ce je page active se zacne
+   session_start(); //@ samo ce je page active se zacne
 ?>
 <!DOCTYPE html>
 <html lang="en">

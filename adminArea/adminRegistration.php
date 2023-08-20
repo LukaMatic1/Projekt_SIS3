@@ -1,3 +1,10 @@
+<?php
+    if(isset($_POST['adminRegistration'])){
+        echo "<script>alert('Podatki vneseni v bazo')</script>";
+        echo "<script>window.open('adminLogin.php','_self')</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +32,7 @@
         <h2 class="text-center mb-5">Registracija admina</h2> 
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6 col-xl-5">
-                <img src="../image/puzzle.jpg" alt="Registracija admina" class="img-fluid">
+                <img src="../image/login.png" alt="Registracija admina" class="img-fluid">
             </div>
             <div class="col-lg-6 col-xl-4">
                 <form action="" method="post">

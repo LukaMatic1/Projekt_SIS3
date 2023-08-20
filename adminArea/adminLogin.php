@@ -3,7 +3,7 @@ if (isset($_POST['adminLogin'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($username=='luka' && $password=='5555') {
+    if ($username=='Luka' && $password=='5555') {
         echo "<script>window.open('index.php', '_self');</script>";
     } else {
         echo "<script>alert('Neveljavni podatki.');</script>";
@@ -38,7 +38,7 @@ if (isset($_POST['adminLogin'])) {
         <h2 class="text-center mb-5">Prijava admina</h2> 
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6 col-xl-5">
-                <img src="../image/puzzle.jpg" alt="Registracija admina" class="img-fluid">
+                <img src="../image/login.png" alt="Registracija admina" class="img-fluid">
             </div>
             <div class="col-lg-6 col-xl-4">
                 <form action="" method="post">

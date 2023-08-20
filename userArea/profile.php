@@ -55,7 +55,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <div class = "container-fluid">
-      <img src="../image/bmwLogo.png" alt="" class="logo">
+      <img src="../image/shopLogo.png" alt="" class="logo">
     <!--<a class="navbar-brand" href="#"></a>-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current ="page" href="../Index.php">Home</a>
+          <a class="nav-link active" aria-current ="page" href="../Index.php">Domov</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../displayAll.php">Produkti</a>
@@ -74,7 +74,7 @@
         if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
-            <a class='nav-link' href='./userRegistration.php'>Register</a>
+            <a class='nav-link' href='./userRegistration.php'>Registracija</a>
           </li>"; 
           }else{
             echo
@@ -84,7 +84,7 @@
           }
         ?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Kontakt</a>
+          <a class="nav-link" href="#">Info</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup>
@@ -129,11 +129,11 @@
         </li>
       
       </ul>
-      <form class="d-flex" action="" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchData">
-        <!--<button class="btn btn-outline-light" type="submit">Search</button> -->
-        <input type="submit" value="Search" class="btn btn-outline-light" name="searchDataProduct">
-      </form>
+      <!--<form class="d-flex" action="" method="get">
+        <input class="form-control me-2" type="search" placeholder="Išči" aria-label="Search" name="searchData">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+        <input type="submit" value="Išči" class="btn btn-outline-light" name="searchDataProduct">
+      </form> -->
     </div>
     </div class>
   </nav> 
@@ -158,12 +158,12 @@
           if(!isset($_SESSION['uporabnisko_ime'])){
             echo
             "<li class='nav-item'>
-            <a class='nav-link' href='./userArea/userLogin.php'>Login</a>
+            <a class='nav-link' href='./userArea/userLogin.php'>Prijava</a>
             </li>"; 
           }else{
             echo
             "<li class='nav-item'>
-            <a class='nav-link' href='./logout.php'>Logout</a>
+            <a class='nav-link' href='./logout.php'>Odjava</a>
             </li>";
           }
         ?>

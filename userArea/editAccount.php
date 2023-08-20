@@ -62,7 +62,7 @@
             <input type="text" class="form-control w-50 m-auto" value="<?php echo $userPostNum ?>" name="postna_stevilka">    
         </div>
 
-        <input type="submit" value="update" class="bg-info py-2 px-3 border-0" name="userUpdate">
+        <input type="submit" value="Posodobi" class="bg-info py-2 px-3 border-0 mb-3" name="userUpdate">
     </form>
 </body>
 </html>
